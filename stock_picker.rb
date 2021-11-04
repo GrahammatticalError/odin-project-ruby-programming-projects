@@ -1,5 +1,4 @@
 #stock_picker.rb
-require 'pry-byebug'
 
 def stock_picker(array)
     array2 = array.clone
