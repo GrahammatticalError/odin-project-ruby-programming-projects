@@ -97,7 +97,7 @@ end
 
 class Player
     attr_reader :mark, :turner, :name, :available_moves
-    attr_accessor :turn
+    attr_accessor :turn, :score
 
     @@moves = [1,2,3,4,5,6,7,8,9]
     @@available_moves = @@moves.dup
@@ -167,12 +167,14 @@ def play_game(p1, p2, board)
     
     if player_win?(board, "X")
         puts "Congratulations #{p1.name}. You are victorious."
+        p1.score += 1
     elsif player_win?(board, "O")
         puts "Congratulation #{p2.name}. You are the champion."
+        p2.score += 2
     else
         puts "Draw." 
     end
-
+    puts "The score is currently #{p1.name}: #{p1.score} to #{p2.name}: #{p2.score}."
     puts "Would you like to play again?(Y or N)"
     response = gets.chomp
     if response == "Y" || response == "y" 
