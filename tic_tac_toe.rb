@@ -124,9 +124,14 @@ class Player
     def takes_move
         puts "In which unoccupied space (#{@@available_moves}) would you like to place your mark?"
         input = gets.chomp
-        @@available_moves.delete(input.to_i)
-        @@turner += 1
-        input
+        if @@available_moves.include? input.to_i
+            @@available_moves.delete(input.to_i)
+            @@turner += 1
+            input
+        else 
+            puts "That move was already taken."
+            takes_move
+        end
     end
 
     def reset_player
