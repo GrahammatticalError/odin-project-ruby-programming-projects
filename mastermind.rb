@@ -7,6 +7,3 @@ class ComputerCode
 
 end
 
-puzzle = ComputerCode.new()
-
-puts puzzle.code
